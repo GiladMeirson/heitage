@@ -1,0 +1,107 @@
+:root{
+      --bg:#0f172a;         /* slate-900 */
+      --panel:#111827;      /* gray-900 */
+      --card:#1f2937;       /* gray-800 */
+      --text:#e5e7eb;       /* gray-200 */
+      --muted:#94a3b8;      /* slate-400 */
+      --accent:#22d3ee;     /* cyan-400 */
+      --accent-2:#f472b6;   /* pink-400 */
+      --edge:#334155;       /* slate-700 */
+      --highlight:#fde047;  /* yellow-400 */
+      --male:#60a5fa;       /* blue-400 */
+      --female:#f472b6;     /* pink-400 */
+      --union:#10b981;      /* emerald-500 */
+    }
+    /* Light theme overrides */
+    :root.theme-light{
+      --bg:#f8fafc;         /* slate-50 */
+      --panel:#ffffff;      /* white */
+      --card:#f1f5f9;       /* slate-100 */
+      --text:#0f172a;       /* slate-900 */
+      --muted:#475569;      /* slate-600 */
+      --accent:#06b6d4;     /* cyan-500 */
+      --accent-2:#ec4899;   /* pink-500 */
+      --edge:#94a3b8;       /* slate-400 */
+      --highlight:#ca8a04;  /* yellow-600 */
+      --male:#3b82f6;       /* blue-500 */
+      --female:#ec4899;     /* pink-500 */
+      --union:#059669;      /* emerald-600 */
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Heebo, system-ui, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", sans-serif;
+      background:linear-gradient(180deg, #0b1220, #0f172a 35%, #0b1220 100%);
+      color:var(--text);
+    }
+    :root.theme-light body{ background:linear-gradient(180deg, #e2e8f0, #f8fafc 40%, #e2e8f0 100%); }
+    header{
+      padding:12px 16px; background:transparent; position:sticky; top:0; z-index:5;
+      backdrop-filter:saturate(140%) blur(6px);
+    }
+    .toolbar{
+      display:flex; gap:8px; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      max-width:1100px; margin:0 auto;
+    }
+    .toolbar h1{font-size:18px; margin:0; font-weight:700; letter-spacing:0.3px}
+    .controls{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+    .controls select, .controls button, .controls input{
+      background:var(--card); color:var(--text); border:1px solid #374151; padding:8px 10px; border-radius:10px; min-height:40px;
+    }
+    .controls button{cursor:pointer; border:1px solid #475569}
+    .controls .spacer{width:8px; height:1px}
+    .wrap{
+      max-width:1100px; margin:0 auto; padding:8px 12px 16px; display:grid; grid-template-columns:1fr; gap:12px;
+    }
+    #cy{
+      width:100%; height:70vh; background:#0b1220; border:1px solid #1f2937; border-radius:14px;
+    }
+    :root.theme-light #cy{ background:#ffffff; border-color:#cbd5e1 }
+    .legend{display:flex; gap:12px; align-items:center; flex-wrap:wrap; font-size:13px; color:var(--muted)}
+    .badge{display:inline-flex; align-items:center; gap:6px; padding:6px 10px; background:var(--card); border:1px solid #334155; border-radius:999px}
+    .dot{width:10px; height:10px; border-radius:50%}
+    /* Modal */
+    .modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; padding:16px; z-index:50}
+    .modal.show{display:flex}
+    .modal-backdrop{position:absolute; inset:0; background:rgba(0,0,0,.55); backdrop-filter: blur(2px)}
+    .modal-card{
+      position:relative; width:min(820px,95vw); background:var(--panel);
+      border:1px solid #334155; border-radius:18px; overflow:hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      transform: translateY(6px) scale(.98); opacity:.98; transition: transform .2s ease, opacity .2s ease;
+      max-height:90vh; display:flex; flex-direction:column;
+    }
+    .modal.show .modal-card{ transform: translateY(0) scale(1); opacity:1 }
+    .modal-content{ padding:22px; overflow:auto; display:flex; gap:24px; align-items:flex-start }
+    .profile-photo{
+      width:260px; height:260px; object-fit:cover; border-radius:16px; display:block; margin:0;
+      border:1px solid #374151; box-shadow: 0 10px 30px rgba(0,0,0,.45);
+      flex:0 0 260px;
+    }
+    .text-col{ flex:1 1 auto; min-width:0 }
+    .title{ text-align:right }
+    .title h3{ margin:0 0 8px 0; font-size:26px; letter-spacing:.2px }
+    .meta{ font-size:13.5px; color:#94a3b8; margin-bottom:12px; text-align:right }
+    .badges{ display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-start; margin:6px 0 16px }
+    .chip{
+      display:inline-flex; align-items:center; gap:6px; padding:6px 10px; font-size:12px; color:var(--text);
+      background:var(--card); border:1px solid #334155; border-radius:999px;
+    }
+    .chip.dot::before{ content:""; width:8px; height:8px; border-radius:50%; background: var(--chip, var(--accent)); display:inline-block }
+  .bio-text{ margin:0; color:#e5e7eb; line-height:1.95; font-size:17px; max-width:62ch; white-space:pre-wrap }
+    .close-btn{
+      position:absolute; top:10px; left:10px; width:36px; height:36px; border-radius:999px;
+      background:#0b1220; border:1px solid #374151; color:#e5e7eb; cursor:pointer; display:grid; place-items:center;
+      box-shadow: 0 2px 10px rgba(0,0,0,.35);
+    }
+
+  /* (Cytoscape classes handle dimming; DOM CSS not needed) */
+
+    /* Cytoscape theme */
+    @media (max-width:700px){
+      #cy{height:68vh}
+      .modal-content{ flex-direction:column; }
+      .profile-photo{ margin:6px auto 8px; width:220px; height:220px; flex:0 0 auto }
+      .title, .meta{ text-align:center }
+      .badges{ justify-content:center }
+      .bio-text{ margin-inline:auto }
+    }
