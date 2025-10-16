@@ -355,7 +355,8 @@ document.getElementById("btnClear").addEventListener("click", () => {
   document.getElementById("personA").value = "";
   document.getElementById("personB").value = "";
   clearHighlights();
-  cy.fit(undefined, 30);
+  runLayout();
+  setTimeout(() => cy.fit(undefined, 30), 200);
 });
 document
   .getElementById("btnFit")
