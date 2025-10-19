@@ -34,8 +34,8 @@ const cy = cytoscape({
         "overlay-padding": 6,
       },
     },
-    { selector: "node.male", style: { "border-color": "var(--male)" } },
-    { selector: "node.female", style: { "border-color": "var(--female)" } },
+    { selector: "node.male", style: { "border-color": "#3b82f6" } },
+    { selector: "node.female", style: { "border-color": "#ec4899" } },
 
     // Union (marriage) nodes – small diamond connectors
     {
@@ -55,12 +55,12 @@ const cy = cytoscape({
       selector: "edge",
       style: {
         width: 2,
-        "line-color": "var(--edge)",
+        "line-color": "#3a55dd",
         "curve-style": "taxi",
         "taxi-direction": "downward",
         "taxi-turn-min-distance": 10,
         "target-arrow-shape": "vee",
-        "target-arrow-color": "var(--edge)",
+        "target-arrow-color": "#3a55dd",
       },
     },
     {
@@ -69,7 +69,7 @@ const cy = cytoscape({
         "line-style": "dashed",
         "target-arrow-shape": "none",
         "curve-style": "taxi",
-        "line-color": "var(--union)",
+        "line-color": "#f9a8d4",
       },
     },
 
@@ -77,16 +77,16 @@ const cy = cytoscape({
     {
       selector: "edge.highlight",
       style: {
-        "line-color": "var(--highlight)",
-        "target-arrow-color": "var(--highlight)",
+        "line-color": "#fbbf24",
+        "target-arrow-color": "#fbbf24",
         width: 6,
         "arrow-scale": 1.4,
         "shadow-blur": 12,
-        "shadow-color": "var(--highlight)",
+        "shadow-color": "#fbbf24",
         "shadow-opacity": 0.5,
         "z-index-compare": "manual",
         "z-index": 999,
-        "underlay-color": "var(--highlight)",
+        "underlay-color": "#fbbf24",
         "underlay-padding": 4,
         "underlay-opacity": 0.25,
         "transition-property": "line-color, width, arrow-scale, shadow-blur",
@@ -96,14 +96,14 @@ const cy = cytoscape({
     {
       selector: "node.highlight",
       style: {
-        "border-color": "var(--highlight)",
+        "border-color": "#fbbf24",
         "border-width": 5,
         "shadow-blur": 10,
-        "shadow-color": "var(--highlight)",
+        "shadow-color": "#fbbf24",
         "shadow-opacity": 0.45,
         "z-index-compare": "manual",
         "z-index": 1000,
-        "underlay-color": "var(--highlight)",
+        "underlay-color": "#fbbf24",
         "underlay-padding": 6,
         "underlay-opacity": 0.22,
         "transition-property": "border-color, border-width, shadow-blur",
